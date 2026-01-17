@@ -6,11 +6,13 @@ import com.example.stoa_backend.dto.NoteRequestDto;
 import com.example.stoa_backend.model.Note;
 import com.example.stoa_backend.service.NoteService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class NoteController {
     
     private NoteService noteService;
@@ -47,6 +50,10 @@ public class NoteController {
         noteService.deleteNote(id);
     }
     
+    @PutMapping("/{id}")
+    public void updateNote(@PathVariable(required = true) Long id, @RequestBody NoteRequestDto noteRequestDto) {
+        noteService.updateNote(id, noteRequestDto.getContenu(), noteRequestDto.getTitre());
+    }
     
     
 }

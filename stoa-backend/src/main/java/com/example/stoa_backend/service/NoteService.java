@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.stoa_backend.dto.NoteRequestDto;
 import com.example.stoa_backend.mapper.NoteMapper;
@@ -33,5 +34,10 @@ public class NoteService {
 
     public void deleteNote(Long id) {
         noteRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void updateNote(Long id, String contenu, String titre) {
+        noteRepository.updateById(id, contenu, titre);
     }
 }
