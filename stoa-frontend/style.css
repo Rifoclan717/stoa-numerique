@@ -1,5 +1,5 @@
 textarea.large-input {
-    width: 600px;
+    width: 500px;
     /* 12px → en haut ET en bas
     14px → à gauche ET à droite */
     padding: 12px 14px;
@@ -11,5 +11,13 @@ textarea.large-input {
     font-size: 16px; 
     
 }
-
+#notesDivContainer {
+    display: flex;
+     /* les enfants se mettront de la gauche vers la droite */
+    flex-direction: row;
+    /* si il n'ya plus de place sur une ligne, ils vont se metttre  */
+    flex-wrap: wrap;     
+    /* distance entre les enfants */
+    gap: 10px;
+}
 /* .notes {} */

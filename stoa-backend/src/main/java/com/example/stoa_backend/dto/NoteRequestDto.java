@@ -8,5 +8,6 @@ import lombok.Setter;
 public class NoteRequestDto {
     private String titre;
     private String contenu;
+    private Long id;
 
 }

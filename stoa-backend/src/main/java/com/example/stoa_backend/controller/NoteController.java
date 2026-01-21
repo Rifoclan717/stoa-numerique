@@ -35,7 +35,7 @@ public class NoteController {
         
     // }
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public ArrayList<NoteRequestDto> getAllNotes() {
         return noteService.findAllNotes();
     }
